@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:statemagementflutter/provider/count_provider.dart';
 import 'package:statemagementflutter/provider/exampleoneprovider.dart';
+import 'package:statemagementflutter/provider/favourite_provider.dart';
 import 'package:statemagementflutter/screen/count.dart';
 import 'package:statemagementflutter/screen/exampleone.dart';
+import 'package:statemagementflutter/screen/favourite/favouritescreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,12 +25,13 @@ class _MyAppState extends State<MyApp> {
       providers: [
         ChangeNotifierProvider(create: (_)=>CountProvider()),
         ChangeNotifierProvider(create: (_)=>ExampleOneProdider()),
-        
+         ChangeNotifierProvider(create: (_)=>FavouriteProvider()),
+
       ],
       child: MaterialApp(
         theme: ThemeData(primarySwatch: Colors.deepOrange),
         title: "Provider ",
-        home: const ExampleOne(),
+        home:  FavouriteScreen(),
       ),
     );
   }
