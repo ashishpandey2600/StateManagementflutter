@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:statemagementflutter/provider/count_provider.dart';
+import 'package:statemagementflutter/provider/dark_theme.dart';
 import 'package:statemagementflutter/provider/exampleoneprovider.dart';
 import 'package:statemagementflutter/provider/favourite_provider.dart';
 import 'package:statemagementflutter/screen/count.dart';
+import 'package:statemagementflutter/screen/darttheme.dart';
 import 'package:statemagementflutter/screen/exampleone.dart';
 import 'package:statemagementflutter/screen/favourite/favouritescreen.dart';
 
@@ -22,17 +24,25 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_)=>CountProvider()),
-        ChangeNotifierProvider(create: (_)=>ExampleOneProdider()),
-         ChangeNotifierProvider(create: (_)=>FavouriteProvider()),
-
-      ],
-      child: MaterialApp(
-        theme: ThemeData(primarySwatch: Colors.deepOrange),
-        title: "Provider ",
-        home:  FavouriteScreen(),
-      ),
-    );
+        providers: [
+          ChangeNotifierProvider(create: (_) => CountProvider()),
+          ChangeNotifierProvider(create: (_) => ExampleOneProdider()),
+          ChangeNotifierProvider(create: (_) => FavouriteProvider()),
+          ChangeNotifierProvider(create: (_) => DarkThemeProvider()),
+        ],
+        child: Builder(
+          builder: (BuildContext context) {
+            final themeChanger = Provider.of<DarkThemeProvider>(context);
+            return MaterialApp
+            (
+            
+              
+              theme: themeChanger.themeMode,
+              title: "Provider ",
+              home: DarkTheme(),
+          );
+        }
+        ),
+        );
   }
 }
