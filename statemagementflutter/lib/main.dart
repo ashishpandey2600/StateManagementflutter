@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:statemagementflutter/provider/auth_provider.dart';
 import 'package:statemagementflutter/provider/count_provider.dart';
 import 'package:statemagementflutter/provider/dark_theme.dart';
 import 'package:statemagementflutter/provider/exampleoneprovider.dart';
@@ -8,6 +9,7 @@ import 'package:statemagementflutter/screen/count.dart';
 import 'package:statemagementflutter/screen/darttheme.dart';
 import 'package:statemagementflutter/screen/exampleone.dart';
 import 'package:statemagementflutter/screen/favourite/favouritescreen.dart';
+import 'package:statemagementflutter/screen/loginscreen.dart';
 import 'package:statemagementflutter/screen/value_notify_listner.dart';
 
 void main() {
@@ -30,6 +32,7 @@ class _MyAppState extends State<MyApp> {
           ChangeNotifierProvider(create: (_) => ExampleOneProdider()),
           ChangeNotifierProvider(create: (_) => FavouriteProvider()),
           ChangeNotifierProvider(create: (_) => DarkThemeProvider()),
+          ChangeNotifierProvider(create: (_) => AuthProvider()),
         ],
         child: Builder(
           builder: (BuildContext context) {
@@ -40,7 +43,7 @@ class _MyAppState extends State<MyApp> {
               
               theme: themeChanger.themeMode,
               title: "Provider ",
-              home: NotifyListnerScreen(),
+              home: LoginScreen(),
           );
         }
         ),
