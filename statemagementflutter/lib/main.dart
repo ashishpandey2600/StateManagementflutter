@@ -8,6 +8,7 @@ import 'package:statemagementflutter/screen/count.dart';
 import 'package:statemagementflutter/screen/darttheme.dart';
 import 'package:statemagementflutter/screen/exampleone.dart';
 import 'package:statemagementflutter/screen/favourite/favouritescreen.dart';
+import 'package:statemagementflutter/screen/value_notify_listner.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,7 +40,7 @@ class _MyAppState extends State<MyApp> {
               
               theme: themeChanger.themeMode,
               title: "Provider ",
-              home: DarkTheme(),
+              home: NotifyListnerScreen(),
           );
         }
         ),
